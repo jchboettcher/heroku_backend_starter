@@ -2,18 +2,20 @@
 
 module.exports = `
   type Mutation {
-    addUser(input: AddUser!): Int!
-    updateScore(id: ID!, newScore: Int!): User
+    addUser(input: AddUser!): User
+    updateScore(id: ID!, newScore: Int!): Int!
   }
 
   type Query {
     allUsers: [User!]!
-    userByName(displayName: String!): User
+    userByName(displayName: String!, password: String!): User
   }
 
   type User {
     id: ID!
     displayName: String!
+    email: String!
+    password: String!
     score: Int!
     rank: Int!
     createdAt: String!
@@ -22,5 +24,7 @@ module.exports = `
 
   input AddUser {
     displayName: String!
+    email: String!
+    password: String!
   }
 `
