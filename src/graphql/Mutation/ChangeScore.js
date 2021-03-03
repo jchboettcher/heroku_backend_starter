@@ -4,21 +4,22 @@ const User = require('../../models/User')
 // eslint-disable-next-line no-unused-vars
 const updateScore = async (obj, { id, newScore }, context) => {
   try {
-    const curr = (await User.query().findById(id)).score
+    const user = await User.query().findById(id).returning('*')
+    const curr = user.score
     if (newScore > curr + 1) {
-        return 0
+        return null
     }
     if (newScore <= curr) {
-        return 1
+        return user
     }
     const num = await User.query().where('score', '>=', newScore).resultSize()
     const newDate = (new Date()).getTime().toString()
-    const user = await User.query().patch({
+    const newuser = await User.query().patch({
       score: newScore,
       rank: num + 1,
       updatedAt: newDate,
-    }).findById(id)
-    return 2
+    }).findById(id).returning('*')
+    return newuser
   } catch (error) {
     // eslint-disable-next-line no-console
     console.warn(error)
