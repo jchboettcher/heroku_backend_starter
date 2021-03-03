@@ -14,8 +14,10 @@
     "apollo-server": "^2.21.0",
     "casual": "^1.6.2",
     "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
     "knex": "^0.21.18",
     "lodash.merge": "^4.6.2",
-    "objection": "^2.2.14"
+    "objection": "^2.2.14",
+    "pg": "^8.5.1"
   }
 }
