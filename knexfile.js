@@ -10,7 +10,7 @@ const config = require('./src/config')
 module.exports = {
   client: 'pg',
   connection: {
-    connectionString: process.env.HEROKU_POSTGRESQL_MAROON_URL,
+    connectionString: process.env.DATABASE_URL,
     ssl: true,
   },
   migrations: {
