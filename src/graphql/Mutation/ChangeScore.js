@@ -1,5 +1,4 @@
 // Import Objection Models Here!
-const { max } = require('../../lib/knex')
 const User = require('../../models/User')
 
 // eslint-disable-next-line no-unused-vars
