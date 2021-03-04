@@ -11,9 +11,10 @@ const addUser = async (obj, { input }, context) => {
     return user
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.warn(error)
+    // console.warn(error)
+    return null
     // throw new Error('failed to insert user')
-    throw error
+    // throw error
   }
 }
 

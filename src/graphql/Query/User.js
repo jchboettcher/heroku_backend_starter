@@ -1,9 +1,10 @@
 const User = require('../../models/User')
 
-const userByName = async (obj, { displayName }, context) => {
+const userByName = async (obj, { displayName, password }, context) => {
   try {
     const user = await User.query().findOne({
       'displayName': displayName, 
+      'password': password,
     })
     return user
   } catch (error) {

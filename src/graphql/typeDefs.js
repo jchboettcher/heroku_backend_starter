@@ -8,8 +8,7 @@ module.exports = `
 
   type Query {
     allUsers: [User!]!
-    userByName(displayName: String!): User
-    checkPass(displayName: String!, password: String!): User
+    userByName(displayName: String!, password: String!): User
   }
 
   type User {

@@ -15,7 +15,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'users', table => {
   table.string('email').unique()
   table.string('password').notNullable()
 
-  table.integer('score').notNullable().defaultTo(1)
+  table.integer('score').notNullable().defaultTo(0)
   table.integer('rank').notNullable()
 
   table.string('updatedAt').notNullable()
