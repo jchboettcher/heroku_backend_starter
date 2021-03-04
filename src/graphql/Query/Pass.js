@@ -1,5 +1,5 @@
 const User = require('../../models/User')
-const hashPassword = require('../auth')
+const { hashPassword } = require('../auth')
 
 const checkPass = async (obj, { displayName, password }, context) => {
   try {

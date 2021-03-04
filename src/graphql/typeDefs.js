@@ -3,7 +3,7 @@
 module.exports = `
   type Mutation {
     addUser(input: AddUser!): User
-    updateScore(id: ID!, newScore: Int!): User
+    updateScore(id: ID!): User!
   }
 
   type Query {

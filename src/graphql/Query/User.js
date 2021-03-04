@@ -1,14 +1,19 @@
 const User = require('../../models/User')
-const hashPassword = require('../auth')
+const { hashPassword, comparePassword } = require('../auth')
 
 const userByName = async (obj, { displayName, password }, context) => {
   try {
     const hashed = await hashPassword(password)
     const user = await User.query().findOne({
-      'displayName': displayName, 
-      'password': hashed,
+      'displayName': displayName,
     })
-    return user
+    if (!user) {
+      return null
+    }
+    if (await comparePassword(password, user.password)) {
+      return user
+    }
+    return null
   } catch (error) {
     console.warn(error)
     // throw new Error('failed to get user by name')
