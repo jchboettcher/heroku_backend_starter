@@ -6,7 +6,7 @@ const addUser = async (obj, { input }, context) => {
   try {
     const num = await User.query().resultSize()
     const time = (new Date()).getTime().toString()
-    input = { rank: num + 1, createdAt: time, updatedAt: time, ...input }
+    input = { rank: num + 1, updatedAt: time, ...input }
     const user = await User.query().insert(input).returning('*')
     return user
   } catch (error) {

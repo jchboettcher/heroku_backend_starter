@@ -1,6 +1,6 @@
 // const { gql } = require('apollo-boost')
 
-module.exports = `
+module.exports = gql`
   type Mutation {
     addUser(input: AddUser!): User
     updateScore(id: ID!, newScore: Int!): User
@@ -8,7 +8,8 @@ module.exports = `
 
   type Query {
     allUsers: [User!]!
-    userByName(displayName: String!, password: String!): User
+    userByName(displayName: String!): User
+    checkPass(displayName: String!, password: String!): User
   }
 
   type User {
@@ -24,7 +25,6 @@ module.exports = `
 
   input AddUser {
     displayName: String!
-    email: String!
     password: String!
   }
 `
